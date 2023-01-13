@@ -1,22 +1,43 @@
-import { Field } from './field.js';
-import { Form } from './form.js';
-import { TextField } from './textfield.js';
-import { EmailField } from './emailfield.js';
-import { PasswordField } from './passwordfield.js';
+import { Field } from './class/field.js';
+import { Form } from './class/form.js';
+import { TextField } from './class/textfield.js';
+import { EmailField } from './class/emailfield.js';
+import { PasswordField } from './class/passwordfield.js';
 
 window.addEventListener("DOMContentLoaded", function(){
     
-    let firstName = document.getElementById('firstName');
-    let lastName = document.getElementById('lastname');
-    let email = document.getElementById('email');
-    let password = document.getElementById('password');
-    let confrimPassword = document.getElementById('confirm-password');
+    let inputsList = document.querySelectorAll("body main form fieldset input");
+    let data = [];
+    let form = new Form();
+    for(let i = 0; i < inputsList.length; i++){
+        if(inputsList[i].getAttribute("type") === "text"){
+            
+            let text = new TextField(inputsList[i]);
+            text.name = inputsList[i].getAttribute("name");
+            data.push(text);
+            form.addField(text);
+            
+        }else if(inputsList[i].getAttribute("type") === "email"){
+            
+            let email = new EmailField(inputsList[i]);
+            email.name = inputsList[i].getAttribute("name");
+            data.push(email);
+            form.addField(email);
+            
+        }else if(inputsList[i].getAttribute("type") === "password"){
+            
+            let password = new PasswordField(inputsList[i]);
+            password.name = inputsList[i].getAttribute("name");
+            data.push(password);
+            form.addField(password);
+        }
+    }
     
-    let firtNameField = new TextField(firstName);
-    let lastNameField = new TextField(lastName);
-    let emailField = new EmailField(email);
-    let passwordField = new PasswordField(password);
-    let confPasswordField = new PasswordField(confrimPassword);
+    console.log(data);
+    
+    
+    // je fais une boucle
+    // j'ajoute mon élément en utilisant addfield
     
     
     

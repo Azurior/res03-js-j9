@@ -8,7 +8,7 @@ class Field{
         this.#errors = [];
     }
     
-    get #element (){
+    get element (){
         return this.#element;
     }
     
@@ -16,7 +16,7 @@ class Field{
         this.#element = element;
     }
     
-    get #errors (){
+    get errors (){
         return this.#errors;
     }
     
@@ -24,7 +24,7 @@ class Field{
         this.#errors = errors;
     }
     
-    get #name (){
+    get name (){
         return this.#name;
     }
     

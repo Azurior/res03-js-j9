@@ -6,11 +6,11 @@ class Form {
         this.#fields = [];
     }
     
-    get #fields (){
+    get fields (){
         return this.#fields;
     }
     
-    get #submitted (){
+    get submitted (){
         return this.#submitted;
     }
     
@@ -19,7 +19,7 @@ class Form {
     }
     
     addField(field){
-        
+        this.#fields.push(field);
     }
     
     submit(){
