@@ -35,9 +35,13 @@ window.addEventListener("DOMContentLoaded", function(){
     
     console.log(data);
     
+    let submit = document.querySelector("body main form");
     
-    // je fais une boucle
-    // j'ajoute mon élément en utilisant addfield
+    submit.addEventListener("submit", function(event){
+        event.preventDefault();
+        event.submit();
+        
+    })
     
     
     
